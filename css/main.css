@@ -6,6 +6,9 @@ body{
 html{
     scroll-behavior: smooth;
 }
+.toggle{
+    display: none;
+}
 ul{
     list-style: none;
 }
@@ -14,7 +17,7 @@ a{
 }
 #main{
     width: 100%;
-    height: 100vh;;
+    height: 100vh;
     box-sizing: border-box;
     background-color: #edf1fd;
     position: relative;
@@ -57,7 +60,7 @@ nav{
     color: #292929;
 }
 .menu li a:hover,
-.active{
+.menu li a.active{
     background-color: #292929;
     color: #FFFFFF !important;
     font-weight: 700;
@@ -114,7 +117,7 @@ nav{
     transition: all ease 0.5s;
 }
 .arrow{
-    /* align-self: end; */
+    align-self: end;
     width: 50%;
     height:15%;
     margin-bottom: 4em;
@@ -175,10 +178,9 @@ nav{
 .about-text button:hover{
     color: #FFFFFF;
     transition: all ease 0.3s;
-
 }
 #projects{
-    display: flex;
+    display: inline-flexbox;
     justify-content: center;
     align-items: center;
     width: 100%;
@@ -293,17 +295,18 @@ nav{
 }
 .p-b-container{
     width: 90%;
-    height: 60vh;
-    display: grid;
-    grid-template-rows: auto auto;
-    grid-template-columns: 1fr 1fr 1fr;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 .p-box{
     width: 380px;
     height: 200px;
     background-color: black;
     border-radius: 10px;
-    position: relative;
     text-transform: uppercase;
     font-size: 1.7rem;
     text-align: center;
@@ -311,6 +314,7 @@ nav{
     box-sizing: border-box;
     letter-spacing: 2px;
     padding-top: 40px;
+    margin: 4px;
 }
 .p-box:hover{
     background-color: #FFFFFF;
@@ -445,6 +449,7 @@ nav{
     box-sizing: border-box;
     color: #ebebeb;
     font-size: 16px;
+    resize: none;
 }
 .contact-right textarea::placeholder{
     color: #ebebeb;
@@ -465,4 +470,184 @@ nav{
     font-size: 14px;
     text-transform: uppercase;
     letter-spacing: 2px;
+}
+@media(max-width:1190px){
+    #main{
+        background-size: 330px;
+    }
+    .name{
+        left: 10%;
+        top: 50%;
+        transform: translate(-10%,-50%);
+    }
+    .about{
+        height: 90vh;
+    }
+    .about-model img{
+        width: 530px;
+    }
+    #services,#projects{
+        height: auto;
+    }
+    .s-b-container{
+        flex-wrap: wrap;
+    }
+    .s-b-text{
+        text-align: center;
+    }
+    .s-box{
+        flex-grow: 1;
+    }
+    #contact-form{
+        width: 95%;
+        height: 100vh;
+    }
+    #contact-form form{
+        width: 90%;
+    }
+
+}
+@media(max-width:970px){
+    #main{
+        background-image: none;
+    }
+    .name{
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+    }
+    .about-model{
+        display: none;
+    }
+    #about{
+        justify-content: center;
+        padding-top: 0px;
+        height: 90vh;
+    }
+    .about-text{
+        width: 90%;
+    }
+    .about-text h1{
+        font-size: 4rem;
+    }
+    .p-b-container{
+        width: 100%;
+    }
+    #contact-form form{
+        width: 90%;
+    }
+}
+@media(max-width:900px){
+    .toggle{
+        display:block;
+    }
+    .toggle:before{
+        content: '\f0c9';
+        font-family: "Font Awesome 5 Free";
+        line-height: 0px;
+        margin-left: -15px;
+    }
+    .toggle.active:before{
+        content: '\f00d';
+    }
+    nav{
+        padding: 10px 30px;
+    }
+    nav ul{
+        position: absolute;
+        width: 100%;
+        height:auto;
+        box-sizing: border-box;
+        background-color: #0f0f0f;
+        top: 50px;
+        left: 0px;
+        transition: 0.5s;
+        overflow: hidden;
+        border: 3px solid #1f1f1f;
+        display: none !important;
+        margin:0px;
+        padding: 0px;
+    }
+    nav ul li a{
+        border-bottom: 1px solid rgba(255,255,255,0.10);
+        width:100%;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0px;
+        padding: 0px;
+
+    }
+    .active-menu{
+        display: block !important;
+    }
+    #contact-btn h1{
+        font-size: 1.4rem;
+        text-align: center;
+        letter-spacing: 1px;
+    }
+    /* #contact-form{
+        padding: 20px;
+        height: auto;
+        box-sizing: border-box;
+
+    } */
+    .c-l-heading{
+        font-size: 2rem;
+        text-align: center;
+    }
+    #contact-form form{
+        flex-direction: column;
+        /* height: auto; */
+        padding: 20px;
+        width: 90%;
+    }
+    .contact-left,
+    .contact-right{
+        width: 100%;
+        border: none;
+    }
+    .f-name,
+    .f-email{
+        width: 100%;
+    }
+    .f-email input,
+    .f-name input{
+        width: 100%;
+        border: none;
+        background-color: #262626;
+        padding: 10px;
+        box-sizing: border-box;
+        height: 40px;
+    }
+    textarea{
+        background-color: #262626 !important;
+        margin: 10px 0px;
+        padding: 10px;
+        height: 140px !important;
+        width: 100% !important;
+        
+    }
+    .message{
+        margin: 0px;
+    }
+    #contact-form form h1{
+        margin: 5px 0px;
+    }
+}
+@media(max-width:600px){
+    .name{
+        width:60%;
+    }
+    .name h1{
+        letter-spacing: 1px;
+    }
+    .arrow{
+        margin-bottom:20px;
+    }
+    .social{
+        left:50px;
+        transform: translate(-30px);
+    }
 }
