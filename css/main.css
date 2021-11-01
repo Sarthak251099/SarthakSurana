@@ -23,8 +23,8 @@ a{
     position: relative;
     background-image: url("../Images/Mini.png");
     background-repeat: no-repeat;
-    background-size: 350px;
-    background-position: right 20% bottom;
+    background-size: 475px;
+    background-position: right 12% bottom 15%;
 }
 nav{
     display: flex;
